@@ -1,14 +1,9 @@
 import { Ticket } from "./Ticket";
 
 export function TableList({ plan }) {
-  const dataTicket = plan.flight;
-  // console.log(dataTicket);
-
-  const { carrier, price, legs } = plan.flight;
+  const { price, legs } = plan.flight;
   const ticketPrice = price.total.amount;
-  const airCompany = carrier.caption;
 
-  
   return (
     <div className="table-wrapper">
       <div className="table-header">
