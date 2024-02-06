@@ -1,15 +1,12 @@
+import { Route, Routes } from "react-router";
 import "./App.scss";
-import { Sort } from "./components/Sort";
-import { Table } from "./components/Table";
+import { Wrapper } from "./components/Wrapper";
 
 function App() {
   return (
-    <>
-      <div className="wrapper">
-        <Sort />
-        <Table />
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Wrapper />} />
+    </Routes>
   );
 }
 
