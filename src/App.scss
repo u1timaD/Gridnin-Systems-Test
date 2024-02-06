@@ -1,0 +1,187 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  gap: 50px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  min-width: 800px;
+  // height: 300px;
+  gap: 25px;
+
+  &-header {
+    background-color: #0087C9;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.table-wrapper {
+  // border: 2px solid red;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+}
+
+.passenger {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-right: 20px;
+
+  &-price {
+    display: flex;
+    gap: 10px;
+    font-weight: 700;
+    font-size: large;
+
+  }
+}
+
+
+
+.info {
+
+  &-text {
+    margin: 0;
+  }
+}
+
+.ticket:first-of-type {
+  border-bottom: 3px solid #0084C5;
+}
+
+.ticket-airports {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: white;
+  height: 45px;
+  gap: 20px;
+  border-bottom: 1px solid #E5E5E5;
+
+
+  & .uid {
+    color: #0087CC;
+  }
+}
+
+.departure-airport,
+.departure-calendar,
+.company-text {
+  margin-left: 100px;
+}
+
+
+
+
+
+
+.ticket-timeline {
+  display: flex;
+  justify-content: start;
+  gap: 118px;
+  align-items: end;
+  background-color: white;
+  margin-bottom: 5px;
+  height: 45px;
+
+  & .calendar {
+    display: flex;
+    gap: 10px;
+  }
+
+  & .time {
+    font-weight: 900;
+    font-size: 20px;
+  }
+
+  & .date {
+    display: block;
+    line-height: 30px;
+    color: rgb(18, 120, 154)
+  }
+}
+
+.transfer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-text {
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF8E1D;
+  }
+}
+
+.left-line,
+.right-line {
+  width: 250px;
+  height: 1px;
+  background-color: #A2A2A2;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 50px;
+
+  &-name {
+    margin-left: 10px;
+  }
+}
+
+.table-btn {
+  background-color: #FFB168;
+  color: white;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+
+.sort,
+.filter,
+.price-search {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.not-found-title {
+  font-size: 70px;
+  margin: 0;
+}
+
+.not-found-text {
+  font-size: 20px;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
