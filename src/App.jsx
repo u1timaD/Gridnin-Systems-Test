@@ -5,7 +5,7 @@ import { Wrapper } from "./components/Wrapper";
 function App() {
   return (
     <Routes>
-      <Route path="/Gridnin-Systems-Test" element={<Wrapper />} />
+      <Route path="/" element={<Wrapper />} />
     </Routes>
   );
 }
