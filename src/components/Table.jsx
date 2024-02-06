@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import flight from "../assets/flights-test";
+import flight from "../assets/flights";
 import { NotFound } from "./NotFound";
 import { TableList } from "./TableList";
 import { useSelector, useDispatch } from "react-redux";

@@ -1,13 +1,12 @@
 import { Filter } from "./Filter";
 import { Price } from "./Price";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { sortTicket, setSortType } from "../Redux/sliceData";
 
 export function Sort() {
   const [sortBy, setSortBy] = useState("");
   const dispatch = useDispatch();
-  const value = useSelector((state) => state.flight.value);
 
   const handleSortChange = (e) => {
     const sortType = e.target.value;
