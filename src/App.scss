@@ -164,7 +164,8 @@ ul {
 
 .sort,
 .filter,
-.price-search {
+.price-search,
+.filter-airline {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -184,4 +185,13 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.airlineCheckbox {
+  margin-left: 5px;
+}
+
+.priceAlert {
+  color: red;
+  font-size: 13px;
 }

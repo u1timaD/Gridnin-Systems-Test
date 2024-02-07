@@ -5,7 +5,6 @@ import { setPriceRangeMax, setPriceRangeMin } from "../Redux/sliceData";
 export function Price() {
   const [min, setMin] = useState("");
   const [max, setMax] = useState("");
- 
 
   const dispatch = useDispatch();
   const handleChangeMin = (e) => {
@@ -17,10 +16,23 @@ export function Price() {
     setMax(e.target.value);
     dispatch(setPriceRangeMax(e.target.value));
   };
+
+  const changePlaceholder = (number) => {
+    if(number === "") {
+      return "Введите значение"; 
+    } else if (Number(min) > Number(number)) {
+     return "значение От должно быть меньше До"
+    }
+    else {
+     return ''
+    }
+  }
+   
+
   return (
     <fieldset className="price-search">
-			<legend>Цена</legend>
-      <label>
+      <legend>Цена</legend>
+      <label className="priceMin">
         <span>От</span>
         <input
           type="number"
@@ -29,6 +41,7 @@ export function Price() {
           onChange={handleChangeMin}
         />
       </label>
+      <span className="priceAlert">{changePlaceholder(min)}</span>
       <label>
         <span>До</span>
         <input
@@ -38,6 +51,7 @@ export function Price() {
           onChange={handleChangeMax}
         />
       </label>
+      <span className="priceAlert">{changePlaceholder(max)}</span>
     </fieldset>
   );
 }
