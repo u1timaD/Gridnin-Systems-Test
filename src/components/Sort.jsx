@@ -1,4 +1,5 @@
 import { Filter } from "./Filter";
+import { Airline } from "./Airline";
 import { Price } from "./Price";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -37,7 +38,7 @@ export function Sort() {
               checked={sortBy === "desc"}
               onChange={handleSortChange}
             />
-            <span>- по убываю цене</span>
+            <span>- по убыванию цене</span>
           </label>
           <label>
             <input
@@ -52,6 +53,7 @@ export function Sort() {
         </fieldset>
         <Filter />
         <Price />
+        <Airline />
       </div>
     </>
   );

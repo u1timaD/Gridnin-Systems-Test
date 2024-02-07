@@ -42,7 +42,6 @@ export const sliceData = createSlice({
         );
       });
 
-
       if (state.transfer) {
         state.value = state.value.filter((ticket) => {
           const sumTransfer = ticket.flight.legs.reduce((acc, arr) => {
@@ -62,7 +61,6 @@ export const sliceData = createSlice({
           return sumTransfer === 2;
         });
       }
-
 
       if (state.sortType === "desc") {
         state.value = state.value.sort((a, b) => {
@@ -233,6 +231,70 @@ export const sliceData = createSlice({
         }
       }
     },
+
+    setFilterAirlines: (state, action) => {
+      if (action.payload) {
+        state.value = state.value.filter((ticket) => {
+          const airlineName = ticket.flight.carrier.caption;
+          const airlinePrice = ticket.flight.price.total.amount;
+          return (
+            airlineName === action.payload.name &&
+            Number(airlinePrice) >= Number(action.payload.price)
+          );
+        });
+      } else {
+        state.value = state.saveValue;
+
+        if (state.transfer) {
+          state.value = state.value.filter((ticket) => {
+            const sumTransfer = ticket.flight.legs.reduce((acc, arr) => {
+              const sum = acc + arr.segments.length;
+              return sum;
+            }, 0);
+            return sumTransfer > 3;
+          });
+        }
+
+        if (state.noTransfer) {
+          state.value = state.value.filter((ticket) => {
+            const sumTransfer = ticket.flight.legs.reduce((acc, arr) => {
+              const sum = acc + arr.segments.length;
+              return sum;
+            }, 0);
+            return sumTransfer === 2;
+          });
+        }
+
+        if (state.sortType === "desc") {
+          state.value = state.value.sort((a, b) => {
+            return (
+              Number(b.flight.price.total.amount) -
+              Number(a.flight.price.total.amount)
+            );
+          });
+        } else if (state.sortType === "asc") {
+          state.value = state.value.sort((a, b) => {
+            return (
+              Number(a.flight.price.total.amount) -
+              Number(b.flight.price.total.amount)
+            );
+          });
+        } else if (state.sortType === "time") {
+          state.value = state.value.sort((a, b) => {
+            const first = a.flight.legs.reduce((acc, time) => {
+              const sum = acc + time.duration;
+              return sum;
+            }, 0);
+            const second = b.flight.legs.reduce((acc, time) => {
+              const sum = acc + time.duration;
+              return sum;
+            }, 0);
+
+            return first - second;
+          });
+        }
+      }
+    },
   },
 });
 
@@ -247,5 +309,6 @@ export const {
   filterPriceCount,
   setPriceRangeMax,
   setPriceRangeMin,
+  setFilterAirlines,
 } = sliceData.actions;
 export default sliceData.reducer;
